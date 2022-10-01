@@ -23,7 +23,7 @@ video: false,
 "reporter": "mochawesome",
      "reporterOptions": {
        "charts": true,
-       "overwrite": false,
+       "overwrite": true,
        "html": false,
        "json": true,
        "reportDir": "cypress/report/mochawesome-report"
