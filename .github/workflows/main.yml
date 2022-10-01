@@ -1,0 +1,39 @@
+name: Main Github Actions
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3.5.0
+        with:
+            node-version: '12.x'
+      - run: npm ci
+      
+      - name: Run test
+        run: npm test
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: mochawesome
+          path: cypress/report/mochawesome-report
+                 
+      - name: Publishing Mochawesome artifact to Github Actions
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: mochawesome-report
+          path: mochawesome-report
+          
+      - name: Deploy report
+        uses: JamesIves/github-pages-deploy-action@v4.4.0
+        with:
+          target-folder: report_default
