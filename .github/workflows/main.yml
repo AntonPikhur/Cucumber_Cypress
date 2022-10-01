@@ -14,10 +14,11 @@ jobs:
             node-version: '18.6.0'
       - uses: cypress-io/github-action@v4.2.0
         with:
-          runTests: 'no'
+          config-file: cypress/cypress.config.js
+          command: npm test
           
-      - name: Run test
-        run: npx cypress run --reporter mochawesome          
+      #- name: Run test
+        #run: npx cypress run --reporter mochawesome          
             
         
       - name: Merge results
