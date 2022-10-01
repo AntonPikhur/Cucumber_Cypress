@@ -13,15 +13,15 @@ jobs:
         with:
             node-version: '18.6.0'
       - uses: cypress-io/github-action@v4.2.0
-
-      - name: Run test
-        run: npx cypress run --reporter mochawesome
+        with:
+          config-file: 
+            
         
       - name: Merge results
-        run: npm test_merge
+        run: npx mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/output.json
         
       - name: Convert results to HTML
-        run: npm test_convert        
+        run: npx marge cypress/report/output.json --reportDir ./ --inline        
 
       - name: Upload reports
         uses: actions/upload-artifact@v3.1.0
