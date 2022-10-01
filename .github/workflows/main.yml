@@ -15,12 +15,18 @@ jobs:
 
       - name: Run test
         run: npm test
+        
+      - name: Merge results
+        run: npm test_merge
+        
+      - name: Convert results to HTML
+        run: npm test_convert        
 
       - name: Upload reports
         uses: actions/upload-artifact@v3.1.0
         with:
           name: mochawesome
-          path: cypress/report/mochawesome-report
+          path: cypress/report
                  
       - name: Publishing Mochawesome artifact to Github Actions
         uses: actions/upload-artifact@v3.1.0
