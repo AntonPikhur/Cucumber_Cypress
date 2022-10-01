@@ -1,0 +1,27 @@
+{
+  "name": "task_three",
+  "version": "1.0.0",
+  "description": "Telnyx part2 cypress+cucumber",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run --reporter mochawesome",
+    "test_conf1": "cypress run --reporter mochawesome --config-file cypress/configs/cypress.config1.js"
+  },
+  "keywords": [
+    "cypress",
+    "cucumber"
+  ],
+  "author": "Anton_Pikhur",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^10.9.0",
+    "mocha": "^10.0.0"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^13.0.2",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+    "cypress-if": "^1.8.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1"
+  }
+}
