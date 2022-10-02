@@ -1,8 +1,6 @@
-name: Main Github Actions
+name: Main Github Actions config_1
 on:
   workflow_dispatch:
-  push:
-    branches: [ "main" ]
 
 jobs:
   build:
@@ -13,8 +11,12 @@ jobs:
         with:
             node-version: '18.6.0'
       - uses: cypress-io/github-action@v4.2.0
-        with: 
-          command: npm test                   
+        with:
+          command: npm test_conf1
+          
+      #- name: Run test
+        #run: npx cypress run --reporter mochawesome          
+            
         
       - name: Merge results
         run: npx mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/index.json
@@ -38,4 +40,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
           branch: gh-pages
-          folder: cypress/report/html
+          folder: cypress/report/html cypress/videos
