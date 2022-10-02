@@ -25,7 +25,7 @@ Steps to use:
                         npm install mochawesome --save-dev
                         npm install mochawesome-merge --save-dev "
 11. " npm test " - run tests with default config file
-12. " npm test_conf1 " - run tests with specific config file (Viewport 1366x768 and with writing videofiles)
+12. " npm test_conf1 " - run tests with specific config file (Viewport changed to 1366x768)
 
 
 ------------------------------------------------------
