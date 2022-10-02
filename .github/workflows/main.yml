@@ -25,13 +25,13 @@ jobs:
         run: npx mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/output.json
         
       - name: Convert results to HTML
-        run: npx marge cypress/report/output.json --reportDir ./ --inline        
+        run: npx marge cypress/report/output.json --reportDir cypress/report --inline        
 
-      - name: Upload reports
+      - name: Upload results
         uses: actions/upload-artifact@v3.1.0
         with:
           name: mochawesome
-          path: cypress/report
+          path: cypress/report/mochawesome-report
                  
       - name: Publishing Mochawesome artifact to Github Actions
         uses: actions/upload-artifact@v3.1.0
@@ -43,4 +43,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
           branch: gh-pages
-          folder: cypress
+          folder: cypress/report
