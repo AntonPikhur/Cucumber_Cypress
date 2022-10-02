@@ -4,10 +4,10 @@
   "description": "Telnyx part2 cypress+cucumber",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run --reporter mochawesome",
-    "test_one": "npx cypress run --reporter mochawesome", 
-    "test_merge": "npx mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/output.json",
-    "test_convert": "npx marge cypress/report/output.json --reportDir ./ --inline"
+    "test": "cypress run --reporter mochawesome",
+    "test_one": "cypress run --reporter mochawesome --browser chrome --config-file cypress/configs/cypress.config1.js", 
+    "test_merge": "mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/output.json",
+    "test_convert": "marge cypress/report/output.json --reportDir ./ --inline"
   },
   "keywords": [
     "cypress",
