@@ -22,10 +22,10 @@ jobs:
             
         
       - name: Merge results
-        run: npx mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/merged/output.json
+        run: npx mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/output.json
         
       - name: Convert results to HTML
-        run: npx marge cypress/report/merged/output.json --reportDir cypress/report/html --inline        
+        run: npx marge cypress/report/output.json --reportDir cypress/report/html --inline        
 
       - name: Upload results
         uses: actions/upload-artifact@v3.1.0
