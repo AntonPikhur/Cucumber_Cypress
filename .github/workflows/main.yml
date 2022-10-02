@@ -12,15 +12,20 @@ jobs:
       - uses: actions/setup-node@v3.5.0
         with:
             node-version: '18.6.0'
-
-      - name: Run test
-        run: npx cypress run --reporter mochawesome
+      - uses: cypress-io/github-action@v4.2.0
+        with:
+          config-file: cypress/cypress.config.js
+          command: npm test
+          
+      #- name: Run test
+        #run: npx cypress run --reporter mochawesome          
+            
         
       - name: Merge results
-        run: npm test_merge
+        run: npx mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/output.json
         
       - name: Convert results to HTML
-        run: npm test_convert        
+        run: npx marge cypress/report/output.json --reportDir ./ --inline        
 
       - name: Upload reports
         uses: actions/upload-artifact@v3.1.0
@@ -32,10 +37,10 @@ jobs:
         uses: actions/upload-artifact@v3.1.0
         with:
           name: mochawesome-report
-          path: mochawesome-report
+          path: cypress/report
           
       - name: Deploy report
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
           branch: gh-pages
-          folder: report_default
+          folder: cypress/output.html
