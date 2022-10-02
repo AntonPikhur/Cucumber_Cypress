@@ -37,10 +37,10 @@ jobs:
         uses: actions/upload-artifact@v3.1.0
         with:
           name: mochawesome-report
-          path: cypress/report/mochawesome-report
+          path: cypress/report
           
       - name: Deploy report
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
           branch: gh-pages
-          folder: cypress/report
+          folder: cypress/output.html
