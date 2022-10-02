@@ -16,6 +16,7 @@ jobs:
         with:
           config-file: cypress/cypress.config.js
           browser: chrome
+          headed: true 
           command: npm test
           
       #- name: Run test
