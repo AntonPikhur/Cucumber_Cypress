@@ -1,0 +1,46 @@
+name: Main Github Actions config_1
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3.5.0
+        with:
+            node-version: '18.6.0'
+      - uses: cypress-io/github-action@v4.2.0
+        with:
+          config-file: cypress/configs/cypress.config1.js
+          browser: chrome
+          headed: false 
+          command: npm test
+          
+      #- name: Run test
+        #run: npx cypress run --reporter mochawesome          
+            
+        
+      - name: Merge results
+        run: npx mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/index.json
+        
+      - name: Convert results to HTML
+        run: npx marge cypress/report/index.json --reportDir cypress/report/html --inline        
+
+      - name: Upload results
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: mochawesome
+          path: cypress/report/mochawesome-report
+                 
+      - name: Publishing Mochawesome artifact to Github Actions
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: mochawesome-report
+          path: cypress/report/mochawesome-report
+          
+      - name: Deploy report
+        uses: JamesIves/github-pages-deploy-action@v4.4.0
+        with:
+          branch: gh-pages
+          folder: cypress/report/html , cypress/videos , cypress/screenshots
