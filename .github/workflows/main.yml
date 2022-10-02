@@ -22,10 +22,10 @@ jobs:
             
         
       - name: Merge results
-        run: npx mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/output.json
+        run: npx mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/merged/output.json
         
       - name: Convert results to HTML
-        run: npx marge cypress/report/output.json --reportDir cypress/report --inline        
+        run: npx marge cypress/report/merged/output.json --reportDir cypress/report/html --inline        
 
       - name: Upload results
         uses: actions/upload-artifact@v3.1.0
@@ -37,10 +37,10 @@ jobs:
         uses: actions/upload-artifact@v3.1.0
         with:
           name: mochawesome-report
-          path: cypress/report
+          path: cypress/report/mochawesome-report
           
       - name: Deploy report
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
           branch: gh-pages
-          folder: cypress/report
+          folder: cypress/report/html
