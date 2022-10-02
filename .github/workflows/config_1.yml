@@ -12,12 +12,8 @@ jobs:
             node-version: '18.6.0'
       - uses: cypress-io/github-action@v4.2.0
         with:
-          command: npm test_conf1
-          
-      #- name: Run test
-        #run: npx cypress run --reporter mochawesome          
-            
-        
+          command: npm test1
+                 
       - name: Merge results
         run: npx mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/index.json
         
