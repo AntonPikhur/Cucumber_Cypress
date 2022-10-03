@@ -4,23 +4,23 @@ class mainPage {
     }
 
     exploreProducts() {
-        return cy.get('.epRMTm')
+        return cy.get('main>div:nth-child(2) div:nth-child(4) ul')
     }
 
     customerStory() {
-        return cy.get('.iUGSsE')
+        return cy.get('main>div:nth-child(2)>div>div:nth-child(5)')
     }
 
     switchSave() {
-        return cy.get('.fjgfOb')
+        return cy.get('main>div:nth-child(2)>div>div:nth-child(8)>div>div')
     }
 
     reviews() {
-        return cy.get('.dLoFKM')
+        return cy.get('main>div:nth-child(2)>div>div:nth-child(14)>div')
     }
 
     footer() {
-        return cy.get('.dKHwUU')
+        return cy.get('main~footer')
     }
 }
 
