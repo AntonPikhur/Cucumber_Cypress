@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress run --reporter mochawesome",
-    "test_conf1": "npx cypress run --reporter mochawesome --browser chrome --config-file cypress/configs/cypress.config1.js",
+    "test_conf1": "cypress run --reporter mochawesome --browser chrome --config-file cypress/configs/cypress.config1.js",
     "test_merge": "mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/output.json",
     "test_convert": "marge cypress/report/output.json --reportDir ./ --inline"
   },
