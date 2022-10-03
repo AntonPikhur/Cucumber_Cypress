@@ -27,5 +27,7 @@ Steps to use:
 11. " npm test " - run tests with default config file
 12. " npm test_conf1 " - run tests with specific config file (Viewport changed to 1366x768)
 
-
+Actions:
+ - "Main Github action" run tests with default config file
+ - "Main Github action config1" run tests with specific options like using chrome and saving video of runs
 ------------------------------------------------------
