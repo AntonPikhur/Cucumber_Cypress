@@ -13,7 +13,8 @@ jobs:
         with:
             node-version: '18.6.0'
       - uses: cypress-io/github-action@v4.2.0
-        with: 
+        with:
+          command: npm test
           browser: chrome
           config-file: cypress/configs/cypress.config1.js
         
