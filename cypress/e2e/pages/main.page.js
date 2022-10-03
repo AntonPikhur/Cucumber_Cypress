@@ -12,7 +12,7 @@ class mainPage {
     }
 
     switchSave() {
-        return cy.get('main>div:nth-child(2)>div>div:nth-child(8)>div>div')
+        return cy.get('main>div:nth-child(2)>div>div:nth-child(8)>div>div:first-child')
     }
 
     reviews() {
