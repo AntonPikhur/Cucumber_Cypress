@@ -4,8 +4,7 @@
   "description": "Telnyx part2 cypress+cucumber",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run --reporter mochawesomeS",
-    "test_configuration": "cypress run --reporter mochawesome", 
+    "test": "cypress run --reporter mochawesome", 
     "test_merge": "mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/output.json",
     "test_convert": "marge cypress/report/output.json --reportDir ./ --inline"
   },
