@@ -19,6 +19,7 @@ await addCucumberPreprocessorPlugin(on, config);
 return config;
 },
 specPattern: "cypress/e2e/**/*.feature",
+videosFolder: "cypress/report/html/video",
 "reporter": "mochawesome",
      "reporterOptions": {
        "charts": true,
