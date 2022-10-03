@@ -38,4 +38,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
           branch: gh-pages
-          folder: cypress/report/html
+          folder: cypress/report/html, cypress/video
